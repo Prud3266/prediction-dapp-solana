@@ -1,14 +1,13 @@
-import React, { useContext, useEffect } from "react";
-import Image from "next/image";
+import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
 
 const styles = {
   container: "flex w-screen h-16 bg-black px-24 py-3 mb-5 fixed",
-  leftHeader: "flex flex-1",
-  searchWrapper: "flex flex-1",
+  leftHeader: "flex flex-1 items-center",
+  searchWrapper: "flex flex-1 justify-center",
   searchInputContainer:
-    "text-white items-center flex  flex-1 -ml-64 border border-gray-400 mr-64 hover:bg-[#1E2123] duration-300 p-3 rounded-lg",
+    "text-white items-center flex flex-1 border border-gray-400 hover:bg-[#1E2123] duration-300 p-3 rounded-lg ml-12",
   searchIcon: "text-gray-400 text-3xl mr-3",
   searchInputWrapper: "text-gray-400 text-lg w-full",
   searchInput: "bg-transparent outline-none w-full",
@@ -17,10 +16,11 @@ const styles = {
 };
 
 const Header = () => {
-
   return (
     <div className={styles.container}>
-      <div className={styles.leftHeader}>{/* LOGO */}</div>
+      <div className={styles.leftHeader}>
+        <h1 className="text-white text-2xl font-bold">Stock Seer</h1>
+      </div>
       <div className={styles.searchWrapper}>
         <div className={styles.searchInputContainer}>
           <AiOutlineSearch className={styles.searchIcon} />
@@ -31,8 +31,8 @@ const Header = () => {
       </div>
       <div className={styles.rightHeader}>
         <div className={styles.menuItem}>Rewards</div>
-        <div className={styles.menuItem}>Portfolio</div>
-        <div className={styles.menuItem}>Connect Wallet</div>
+        <div className={styles.menuItem}>Portfolio</div>        
+        <WalletMultiButton />
       </div>
     </div>
   );
